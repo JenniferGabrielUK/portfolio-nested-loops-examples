@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cctype>
+
+int i, j, k, rows;
+char ch{};
+
+void print_pyramid() {
+    for (i = rows; i >= 1; i--) {
+        for (j = 0; j <= rows - 1; j++) {
+            std::cout << " ";
+        }
+        for (k = 0; k != (2 * i - 1); k++) {
+            std::cout << ch;
+        }
+        std::cout << "\n";
+    }
+}
+
+void pyramid_loop () {
+    std::cout << "========== Pyramid Printer ==========" << std::endl;
+    std::cout << "Enter pyrdamid Rows: ";
+    std::cin >> rows;
+    std::cout << "Enter symbol: ";
+    std::cin >> ch;
+    print_pyramid();
+}
+
+int main()
+{
+    char selection{};
+    do {
+        pyramid_loop();
+        std::cout << "Would you like to print another pyramid? y/n " << std::endl;
+        std::cin >> selection;
+    } while (selection == 'Y' || selection == 'y');
+        std::cout << "Bye!" << std::endl;
+    
+    return 0;
+}
